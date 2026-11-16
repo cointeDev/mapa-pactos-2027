@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Mapa Estratégico &amp; Pactos de Governança — COINTE / SEEC-RN (2027)
+    </title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Folha de Estilos Personalizada -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons via CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Configuração do Tailwind e Scripts de Interatividade -->
+    <script src="script.js"></script>
+  </head>
+  <body
+    class="min-h-screen flex flex-col antialiased selection:bg-sky-200 selection:text-cointe-900"
+  >
+    <!-- ===================================================================== -->
+    <!-- 1. CABEÇALHO EXECUTIVO (MESMO PADRÃO VISUAL COINTE)                   -->
+    <!-- ===================================================================== -->
+    <header
+      class="bg-gradient-to-r from-cointe-950 via-cointe-900 to-cointe-800 text-white shadow-lg sticky top-0 z-40 border-b border-sky-800/50"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 presentation-container"
+      >
+        <div
+          class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"
+        >
+          <div class="flex items-start sm:items-center gap-3.5">
+            <div
+              class="bg-sky-500/20 border border-sky-400/30 p-2.5 rounded-xl shrink-0 mt-0.5 sm:mt-0"
+            >
+              <i
+                data-lucide="calendar-check-2"
+                class="w-7 h-7 text-sky-300"
+              ></i>
+            </div>
+            <div>
+              <div
+                class="flex flex-wrap items-center gap-2 mb-1 hide-in-presentation"
+              >
+                <span
+                  class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-sky-500/20 text-sky-200 border border-sky-400/30"
+                >
+                  <span
+                    class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"
+                  ></span>
+                  SEEC-RN • Coordenadoria de Inovação e Tecnologias Educacionais
+                </span>
+                <span class="text-xs text-slate-300 font-medium"
+                  >Ciclo Operacional: Dez/2026 – Dez/2027</span
+                >
+              </div>
+              <h1
+                class="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-white leading-snug"
+              >
+                Mapa Estratégico &amp; Pactos de Governança (2027)
+              </h1>
+              <p class="text-xs sm:text-sm text-sky-100/90 mt-0.5">
+                COINTE / SEEC-RN • Acordos de Equipe, Validação ao Vivo e
+                Cronograma de Execução Pedagógica
+              </p>
+            </div>
+          </div>
+
+          <!-- Controle de Sala / Reunião (Modo Apresentação) -->
+          <div
+            class="flex items-center gap-2.5 self-start lg:self-center shrink-0"
+          >
+            <button
+              id="btnPresentationMode"
+              onclick="togglePresentationMode()"
+              type="button"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all shadow-sm cursor-pointer"
+              title="Ocultar elementos auxiliares e ampliar textos para projeção em sala"
+            >
+              <i
+                data-lucide="presentation"
+                id="iconPresentation"
+                class="w-4 h-4 text-sky-300"
+              ></i>
+              <span id="labelPresentation">Modo Apresentação</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================================================================== -->
+    <!-- 2. CONTEÚDO PRINCIPAL: PACTOS DE GOVERNANÇA & MAPA ESTRATÉGICO 2027   -->
+    <!-- ===================================================================== -->
+    <main
+      class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 presentation-container"
+    >
+      <section class="panel-enter space-y-6">
+        <!-- Seção Superior: Checklist Interativo dos 4 Pactos de Governança -->
+        <div
+          class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm"
+        >
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 mb-5 border-b border-slate-100"
+          >
+            <div class="flex items-start gap-3.5">
+              <div class="bg-cointe-900 text-white p-2.5 rounded-xl shrink-0">
+                <i data-lucide="file-signature" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h2 class="text-lg font-bold text-slate-900">
+                  Pactos Operacionais de Governança 2027 (Validação ao Vivo)
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-500">
+                  Marque cada acordo à medida que a equipe deliberar e aprovar
+                  na reunião de planejamento
+                </p>
+              </div>
+            </div>
+
+            <!-- Contador de Pactos Acordados -->
+            <div class="flex items-center gap-3 self-start md:self-center">
+              <div
+                class="bg-slate-100 border border-slate-200 rounded-xl px-4 py-2 flex items-center gap-3"
+              >
+                <div>
+                  <span
+                    class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block"
+                    >Pactos Acordados</span
+                  >
+                  <span
+                    id="pactCounterText"
+                    class="text-lg font-extrabold text-cointe-900"
+                    >0 de 4</span
+                  >
+                </div>
+                <div
+                  class="w-20 h-2.5 bg-slate-200 rounded-full overflow-hidden"
+                >
+                  <div
+                    id="pactProgressBar"
+                    class="h-full bg-emerald-500 transition-all duration-300"
+                    style="width: 0%"
+                  ></div>
+                </div>
+              </div>
+              <button
+                type="button"
+                onclick="resetPacts()"
+                class="p-2.5 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 border border-transparent hover:border-slate-200 transition-all cursor-pointer"
+                title="Limpar marcações"
+              >
+                <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Banner de Consenso Alcançado (aparece quando 4/4 marcados) -->
+          <div
+            id="pactSuccessBanner"
+            class="hidden mb-5 bg-emerald-50 border border-emerald-300 text-emerald-950 rounded-xl p-4 flex items-center gap-3"
+          >
+            <i
+              data-lucide="party-popper"
+              class="w-6 h-6 text-emerald-600 shrink-0"
+            ></i>
+            <div class="text-sm">
+              <strong>Consenso Pleno Registrado!</strong> Todos os 4 pactos
+              operacionais de governança foram acordados pela equipe para o
+              ciclo pedagógico 2027.
+            </div>
+          </div>
+
+          <!-- Grid dos 4 Pactos Clicáveis -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-4"
+            id="pactsContainer"
+          >
+            <!-- Pacto 1 -->
+            <label
+              class="pact-item group flex items-start gap-3.5 p-4 rounded-xl border-2 border-slate-200 hover:border-sky-400 bg-slate-50/50 cursor-pointer transition-all select-none"
+            >
+              <input
+                type="checkbox"
+                class="pact-checkbox mt-1 w-5 h-5 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                onchange="updatePactCounter()"
+              />
+              <div class="space-y-1">
+                <div class="flex items-center gap-2">
+                  <span
+                    class="text-xs font-bold uppercase tracking-wider text-sky-700"
+                    >Pacto 01 • Antecedência</span
+                  >
+                </div>
+                <h4
+                  class="text-sm font-bold text-slate-900 group-hover:text-cointe-900"
+                >
+                  Regra dos 30 Dias e Plano de Ação Formativa
+                </h4>
+                <p
+                  class="text-xs text-slate-600 leading-relaxed card-text-scale"
+                >
+                  Nenhuma formação presencial será executada sem o preenchimento
+                  prévio do <em>Plano da Ação Formativa</em> com
+                  <strong>30 dias de antecedência</strong>, vinculando
+                  requisição de materiais, espaços adequados e solicitação
+                  formal de motoristas/carregadores à SEEC.
+                </p>
+              </div>
+            </label>
+
+            <!-- Pacto 2 -->
+            <label
+              class="pact-item group flex items-start gap-3.5 p-4 rounded-xl border-2 border-slate-200 hover:border-sky-400 bg-slate-50/50 cursor-pointer transition-all select-none"
+            >
+              <input
+                type="checkbox"
+                class="pact-checkbox mt-1 w-5 h-5 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                onchange="updatePactCounter()"
+              />
+              <div class="space-y-1">
+                <div class="flex items-center gap-2">
+                  <span
+                    class="text-xs font-bold uppercase tracking-wider text-sky-700"
+                    >Pacto 02 • Socialização</span
+                  >
+                </div>
+                <h4
+                  class="text-sm font-bold text-slate-900 group-hover:text-cointe-900"
+                >
+                  Devolutiva Obrigatória de Eventos e Visitas Técnicas
+                </h4>
+                <p
+                  class="text-xs text-slate-600 leading-relaxed card-text-scale"
+                >
+                  Todo servidor que representar a COINTE em evento externo ou
+                  visita técnica apresentará
+                  <strong
+                    >síntese executiva na reunião semanal subsequente (em até 7
+                    dias úteis)</strong
+                  >
+                  e anexará relatório resumido + fotos no repositório
+                  compartilhado.
+                </p>
+              </div>
+            </label>
+
+            <!-- Pacto 3 -->
+            <label
+              class="pact-item group flex items-start gap-3.5 p-4 rounded-xl border-2 border-slate-200 hover:border-sky-400 bg-slate-50/50 cursor-pointer transition-all select-none"
+            >
+              <input
+                type="checkbox"
+                class="pact-checkbox mt-1 w-5 h-5 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                onchange="updatePactCounter()"
+              />
+              <div class="space-y-1">
+                <div class="flex items-center gap-2">
+                  <span
+                    class="text-xs font-bold uppercase tracking-wider text-sky-700"
+                    >Pacto 03 • Registros</span
+                  >
+                </div>
+                <h4
+                  class="text-sm font-bold text-slate-900 group-hover:text-cointe-900"
+                >
+                  Auditoria Mensal no Instrumental Único Digital
+                </h4>
+                <p
+                  class="text-xs text-slate-600 leading-relaxed card-text-scale"
+                >
+                  Na <strong>última sexta-feira de cada mês</strong>, cada
+                  núcleo (NATEs, NIP e Formação) validará seus registros de
+                  atividades e mídias no Instrumental Único Digital, eliminando
+                  gargalos nos envios bimestrais à ATP e no Mapa da COINTE.
+                </p>
+              </div>
+            </label>
+
+            <!-- Pacto 4 -->
+            <label
+              class="pact-item group flex items-start gap-3.5 p-4 rounded-xl border-2 border-slate-200 hover:border-sky-400 bg-slate-50/50 cursor-pointer transition-all select-none"
+            >
+              <input
+                type="checkbox"
+                class="pact-checkbox mt-1 w-5 h-5 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                onchange="updatePactCounter()"
+              />
+              <div class="space-y-1">
+                <div class="flex items-center gap-2">
+                  <span
+                    class="text-xs font-bold uppercase tracking-wider text-sky-700"
+                    >Pacto 04 • Avaliação &amp; Ciclo</span
+                  >
+                </div>
+                <h4
+                  class="text-sm font-bold text-slate-900 group-hover:text-cointe-900"
+                >
+                  Encerramento Externo em Outubro &amp; Pesquisa Condicional
+                </h4>
+                <p
+                  class="text-xs text-slate-600 leading-relaxed card-text-scale"
+                >
+                  Encerrar execuções formativas externas em
+                  <strong>outubro/2027</strong> (reservando nov–dez para
+                  sistematização e plano 2028) e configurar seções condicionais
+                  na avaliação anual (ex.: bloco Estágio) para evitar distorções
+                  estatísticas.
+                </p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Linha do Tempo Visual e Interativa (6 Etapas) -->
+        <div
+          class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm space-y-6"
+        >
+          <div
+            class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-100 pb-4"
+          >
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">
+                Mapa Estratégico Pedagógico (Dez/2026 – Dez/2027)
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-500">
+                Filtre as etapas do cronograma por núcleo ou frente responsável
+              </p>
+            </div>
+
+            <!-- Filtro por Responsável / Núcleo -->
+            <div class="flex flex-wrap gap-2" id="roadmapFilters">
+              <button
+                type="button"
+                onclick="filterRoadmap('todos')"
+                data-rfilter="todos"
+                class="r-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-cointe-900 text-white shadow-xs cursor-pointer transition-all"
+              >
+                Todas as Etapas (6)
+              </button>
+              <button
+                type="button"
+                onclick="filterRoadmap('coordenacao')"
+                data-rfilter="coordenacao"
+                class="r-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer transition-all"
+              >
+                Coordenação
+              </button>
+              <button
+                type="button"
+                onclick="filterRoadmap('nates')"
+                data-rfilter="nates"
+                class="r-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer transition-all"
+              >
+                NATEs
+              </button>
+              <button
+                type="button"
+                onclick="filterRoadmap('nip')"
+                data-rfilter="nip"
+                class="r-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer transition-all"
+              >
+                NIP
+              </button>
+              <button
+                type="button"
+                onclick="filterRoadmap('formadores')"
+                data-rfilter="formadores"
+                class="r-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer transition-all"
+              >
+                Formadores
+              </button>
+              <button
+                type="button"
+                onclick="filterRoadmap('equipe')"
+                data-rfilter="equipe"
+                class="r-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer transition-all"
+              >
+                Equipe Completa
+              </button>
+            </div>
+          </div>
+
+          <!-- Timeline Vertical Estruturada -->
+          <div
+            class="relative pl-6 sm:pl-8 border-l-2 border-sky-200 space-y-6"
+            id="roadmapTimeline"
+          >
+            <!-- Etapa 1 -->
+            <div
+              data-owners="coordenacao equipe"
+              class="roadmap-item relative bg-slate-50/80 hover:bg-white rounded-2xl p-5 border border-slate-200 shadow-2xs transition-all"
+            >
+              <span
+                class="absolute -left-[33px] sm:-left-[41px] top-6 w-4 h-4 rounded-full bg-cointe-900 ring-4 ring-sky-100"
+              ></span>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2"
+              >
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-cointe-900 text-white self-start"
+                >
+                  <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Dez/2026 –
+                  Jan/2027
+                </span>
+                <div class="flex flex-wrap gap-1.5">
+                  <span
+                    class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-blue-100 text-blue-800"
+                    >Coordenação</span
+                  >
+                  <span
+                    class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-slate-200 text-slate-800"
+                    >Equipe Completa</span
+                  >
+                </div>
+              </div>
+              <h4 class="text-base font-bold text-slate-900">
+                1. Governança e Planejamento Coletivo
+              </h4>
+              <p class="text-sm text-slate-700 mt-1.5 card-text-scale">
+                Realizar oficina de planejamento setorial (por núcleos: NATEs,
+                NIP, Maker) e intersetorial; definir matriz de atribuições por
+                subsetor; publicar o
+                <strong>Calendário Macro Bimestral</strong> e implantar o
+                <strong>Instrumental Único Digital</strong> de planejamento e
+                registro.
+              </p>
+              <p class="text-xs font-semibold text-sky-700 mt-2.5">
+                Entregável: Calendário Macro publicado e Instrumental Único
+                ativo antes do início do ano letivo.
+              </p>
+            </div>
+
+            <!-- Etapa 2 -->
+            <div
+              data-owners="coordenacao nates nip"
+              class="roadmap-item relative bg-slate-50/80 hover:bg-white rounded-2xl p-5 border border-slate-200 shadow-2xs transition-all"
+            >
+              <span
+                class="absolute -left-[33px] sm:-left-[41px] top-6 w-4 h-4 rounded-full bg-sky-600 ring-4 ring-sky-100"
+              ></span>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2"
+              >
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-sky-600 text-white self-start"
+                >
+                  <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Jan –
+                  Fev/2027
+                </span>
+                <div class="flex flex-wrap gap-1.5">
+                  <span
+                    class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-blue-100 text-blue-800"
+                    >Coordenação</span
+                  >
+                  <span
+                    class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-emerald-100 text-emerald-800"
+                    >NATEs</span
+                  >
+                  <span
+                    class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-amber-100 text-amber-800"
+                    >NIP</span
+                  >
+                </div>
+              </div>
+              <h4 class="text-base font-bold text-slate-900">
+                2. Posicionamento na Jornada Pedagógica e Diagnóstico de
+                Maturidade Digital
+              </h4>
+              <p class="text-sm text-slate-700 mt-1.5 card-text-scale">
+                Atuar como coordenadoria proponente na
+                <strong>Jornada Pedagógica 2027</strong> apresentando o
+                portfólio da COINTE (NATEs, NIP e Maratona Tech) às escolas;
+                aplicar
+                <strong
+                  >Formulário de Diagnóstico de Maturidade Digital via
+                  NATEs</strong
+                >
+                para nivelar turmas (iniciante, intermediário e avançado).
+              </p>
+              <p class="text-xs font-semibold text-sky-700 mt-2.5">
+                Entregável: Mapeamento diagnóstico de escolas/docentes concluído
+                antes da abertura das inscrições.
+              </p>
+            </div>
+
+            <!-- Etapa 3 -->
+            <div
+              data-owners="formadores nates nip"
+              class="roadmap-item relative bg-slate-50/80 hover:bg-white rounded-2xl p-5 border border-slate-200 shadow-2xs transition-all"
+            >
+              <span
+                class="absolute -left-[33px] sm:-left-[41px] top-6 w-4 h-4 rounded-full bg-emerald-600 ring-4 ring-emerald-100"
+              ></span>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2"
+              >
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-emerald-600 text-white self-start"
+                >
+                  <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Mar –
+                  Jun/2027
+                </span>
+                <div class="flex flex-wrap gap-1.5">
+                  <span
+                    class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-indigo-100 text-indigo-800"
+                    >Formadores</span
+                  >
+                  <span
+                    class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-emerald-100 text-emerald-800"
+                    >NATEs</span
+                  >
+                  <span
+                    class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-amber-100 text-amber-800"
+                    >NIP</span
+                  >
+                </div>
+              </div>
+              <h4 class="text-base font-bold text-slate-900">
+                3. Ciclo Formativo I e Clubes de Mentoria
+              </h4>
+              <p class="text-sm text-slate-700 mt-1.5 card-text-scale">
+                Executar oficinas presenciais e virtuais nos 3 eixos das DCECs
+                (plugado/desplugado) e IA Ética/Pós-Verdade; criar
+                <strong
+                  >Clubes de Formação / Mentorias quinzenais nos NATEs</strong
+                >
+                para acompanhar trilhas FTV, Google e AVAMEC; lançar o podcast
+                na RIEH e pactuar oficina inclusiva com a SUESP.
+              </p>
+              <p class="text-xs font-semibold text-emerald-700 mt-2.5">
+                Meta: Taxa de conclusão &gt;70% nas trilhas virtuais e 100% dos
+                Planos de Formação entregues 30 dias antes.
+              </p>
+            </div>
+
+            <!-- Etapa 4 -->
+            <div
+              data-owners="formadores nip nates"
+              class="roadmap-item relative bg-slate-50/80 hover:bg-white rounded-2xl p-5 border border-slate-200 shadow-2xs transition-all"
+            >
+              <span
+                class="absolute -left-[33px] sm:-left-[41px] top-6 w-4 h-4 rounded-full bg-indigo-600 ring-4 ring-indigo-100"
+              ></span>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2"
+              >
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white self-start"
+                >
+                  <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Jul –
+                  Out/2027
+                </span>
+                <div class="flex flex-wrap gap-1.5">
+                  <span
+                    class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-indigo-100 text-indigo-800"
+                    >Formadores</span
+                  >
+                  <span
+                    class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-amber-100 text-amber-800"
+                    >NIP</span
+                  >
+                  <span
+                    class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-emerald-100 text-emerald-800"
+                    >NATEs</span
+                  >
+                </div>
+              </div>
+              <h4 class="text-base font-bold text-slate-900">
+                4. Ciclo Formativo II, Maratona Tech e Mostra REA
+              </h4>
+              <p class="text-sm text-slate-700 mt-1.5 card-text-scale">
+                Realizar
+                <strong>Laboratórios de Redesign Didático e Avaliativo</strong>
+                e oficinas de Cultura Maker/Robótica; mobilizar escolas para a
+                <strong>Maratona Tech (Cactus)</strong> e editais científicos;
+                vincular certificação docente à entrega de plano de aula/relato
+                para alimentar o <strong>Repositório Estadual de REAs</strong>.
+              </p>
+              <p class="text-xs font-semibold text-indigo-700 mt-2.5">
+                Entregável: REAs validados publicados no repositório estadual e
+                expansão de escolas inscritas em olimpíadas.
+              </p>
+            </div>
+
+            <!-- Etapa 5 -->
+            <div
+              data-owners="coordenacao equipe"
+              class="roadmap-item relative bg-slate-50/80 hover:bg-white rounded-2xl p-5 border border-slate-200 shadow-2xs transition-all"
+            >
+              <span
+                class="absolute -left-[33px] sm:-left-[41px] top-6 w-4 h-4 rounded-full bg-amber-500 ring-4 ring-amber-100"
+              ></span>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2"
+              >
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-amber-500 text-white self-start"
+                >
+                  <i data-lucide="repeat" class="w-3.5 h-3.5"></i> Contínuo (Fev
+                  – Out/2027)
+                </span>
+                <div class="flex flex-wrap gap-1.5">
+                  <span
+                    class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-blue-100 text-blue-800"
+                    >Coordenação</span
+                  >
+                  <span
+                    class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-slate-200 text-slate-800"
+                    >Equipe Completa</span
+                  >
+                </div>
+              </div>
+              <h4 class="text-base font-bold text-slate-900">
+                5. Rotinas Contínuas de Fluxo, Logística e Estágio
+              </h4>
+              <p class="text-sm text-slate-700 mt-1.5 card-text-scale">
+                Cumprir o
+                <strong>Protocolo de Devolutiva Obrigatória</strong> de eventos
+                externos (reunião semanal + relatório/fotos em até 7 dias);
+                auditoria mensal de registros na última sexta-feira do mês;
+                requisição antecipada de transporte/carregadores à SEEC; e
+                trilha individualizada para estagiários.
+              </p>
+              <p class="text-xs font-semibold text-amber-700 mt-2.5">
+                Indicador: 100% dos eventos externos socializados e 100% das
+                ações registradas mensalmente.
+              </p>
+            </div>
+
+            <!-- Etapa 6 -->
+            <div
+              data-owners="coordenacao nates nip formadores equipe"
+              class="roadmap-item relative bg-slate-50/80 hover:bg-white rounded-2xl p-5 border border-slate-200 shadow-2xs transition-all"
+            >
+              <span
+                class="absolute -left-[33px] sm:-left-[41px] top-6 w-4 h-4 rounded-full bg-rose-600 ring-4 ring-rose-100"
+              ></span>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2"
+              >
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-rose-600 text-white self-start"
+                >
+                  <i data-lucide="flag-triangle-right" class="w-3.5 h-3.5"></i>
+                  Nov – Dez/2027 (Encerramento Externo em Outubro)
+                </span>
+                <div class="flex flex-wrap gap-1.5">
+                  <span
+                    class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-slate-200 text-slate-800"
+                    >Equipe Completa</span
+                  >
+                  <span
+                    class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-blue-100 text-blue-800"
+                    >Coordenação</span
+                  >
+                </div>
+              </div>
+              <h4 class="text-base font-bold text-slate-900">
+                6. Encerramento em Outubro &amp; Consolidação / Plano 2028
+              </h4>
+              <p class="text-sm text-slate-700 mt-1.5 card-text-scale">
+                Encerrar execuções formativas externas em
+                <strong>outubro/2027</strong>; consolidar indicadores do
+                <strong>Mapa da COINTE</strong> e relatório anual; aplicar
+                pesquisa de avaliação interna revisada (com blocos condicionais
+                para Estágio) e construir participativamente o
+                <strong>Plano Pedagógico 2028</strong>.
+              </p>
+              <p class="text-xs font-semibold text-rose-700 mt-2.5">
+                Entregável: Relatório Anual 2027 concluído e Plano 2028 aprovado
+                até a 2ª semana de dezembro.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================================================================== -->
+    <!-- 3. RODAPÉ INSTITUCIONAL                                               -->
+    <!-- ===================================================================== -->
+    <footer
+      class="bg-white border-t border-slate-200 py-4 mt-8 hide-in-presentation"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500"
+      >
+        <span
+          >COINTE / SEEC-RN • Coordenadoria de Inovação e Tecnologias
+          Educacionais</span
+        >
+        <span
+          >Mapa Estratégico Pedagógico &amp; Pactos de Governança • Ciclo
+          2027</span
+        >
+      </div>
+    </footer>
+  </body>
+</html>
